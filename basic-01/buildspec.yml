@@ -3,11 +3,13 @@ version: 0.2
 env:
   variables:
     JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
-  parameter-store:
-    LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword
+  # parameter-store:
+  #   LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword
 
 phases:
   install:
+    runtime-versions:
+      golang: 1.12
     commands:
       - echo Entered the install phase...
     finally:
@@ -29,16 +31,16 @@ phases:
       - echo Build completed on `date`
 artifacts:
   files:
-    - target/messageUtil-1.0.jar
+    - README.md
   discard-paths: yes
   secondary-artifacts:
     artifact1:
       files:
-        - target/messageUtil-1.0.jar
+        - README.md
       discard-paths: yes
     artifact2:
       files:
-        - target/messageUtil-1.0.jar
+        - README.md
       discard-paths: yes
 cache:
   paths:
