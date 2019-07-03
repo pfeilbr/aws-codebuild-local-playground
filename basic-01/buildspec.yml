@@ -12,6 +12,7 @@ phases:
       golang: 1.12
     commands:
       - echo Entered the install phase...
+      - env
     finally:
       - echo This always runs even if the update or install command fails 
   pre_build:
