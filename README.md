@@ -16,6 +16,8 @@ docker build -t aws/codebuild/standard:2.0 .
 docker pull amazon/aws-codebuild-local:latest --disable-content-trust=false
 
 # cd to directory containing `buildspec.yml`
+# NOTE: script was previously downloaded to `~/bin/codebuild_build.sh`
 codebuild_build.sh -i 'aws/codebuild/standard:2.0' -a 'artifact-output' -c
+
 ```
 
